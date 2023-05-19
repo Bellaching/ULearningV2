@@ -130,7 +130,6 @@ public class BasicCalculator extends AppCompatActivity implements View.OnClickLi
             case '÷':
                 if (operand2 == 0) {
                     resultTextView.setText("Cannot divide by zero");
-
                     return;
                 }
                 result = operand1 / operand2;
