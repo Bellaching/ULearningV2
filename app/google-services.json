@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "599331555912",
+    "project_id": "ulearning-ddf76",
+    "storage_bucket": "ulearning-ddf76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599331555912:android:851fc1da8e80bd2378a67d",
+        "android_client_info": {
+          "package_name": "com.example.ulearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599331555912-mf64k502urgec9lrpor1tr09vgj3boov.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ulearning",
+            "certificate_hash": "239141da1ff70de9140656391b43de62b4fc0a05"
+          }
+        },
+        {
+          "client_id": "599331555912-d08m3o5u6cqi8hfod33h4latsmknck9h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCodjdn4p8sk8viVjJM0sGxK4MCxThPQBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599331555912-d08m3o5u6cqi8hfod33h4latsmknck9h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Introduction"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/introone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/introonee"
+        android:layout_marginTop="180dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
+        android:onClick="onClick"
+        android:id="@+id/introonebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_below="@+id/introone"
+        android:layout_centerHorizontal="true"
+        android:width="250dp"
+        android:height="60dp"
+        android:textSize="25dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginTop="190dp"
+
+        />
+</RelativeLayout>

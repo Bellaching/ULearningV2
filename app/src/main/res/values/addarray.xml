@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="addition_explanations">
+        <item>1 \n\nYou had 5 apples, and your friend gave you 2 more. \n\nNow, how many apples do you have? \n\nAdd 5 and 2 together. \n\nYou have 7 apples in total now. \n\nWe count the apples one by one. \n\nWe start with 5... 6... 7! \n\nNow, you have a total of 7 apples!</item>
+        <item>2 \n\nYou had 3 toy cars, and your friend gave you 4 more. \n\nNow, how many toy cars do you have? \n\nLets add 3 and 4 together. \n\nYou have 7 toy cars in total now. \n\nWe count the cars one by one. \n\nWe start with 3... 4... 5... 6... 7! \n\nNow, you have a total of 7 toy cars</item>
+        <item>3 \n\nYou had 8 colorful balloons, and your friend gave you 5 more. \n\nNow, how many balloons do you have? \n\nLets add 8 and 5 together. \n\nYou have 13 balloons in total now. \n\nWe count the balloons one by one. \n\nWe start with 8... 9... 10... 11... 12... 13! \n\nNow, you have a total of 13 balloons!</item>
+        <item>4 \n\nYou had 6 yummy cookies, and your friend gave you 3 more. \n\nNow, how many cookies do you have? \n\nLets add 6 and 3 together. \n\nYou have 9 cookies in total now. \n\nWe count the cookies one by one. \n\nWe start with 6... 7... 8... 9! \n\nNow, you have a total of 9 cookies!</item>
+        <item>5 \n\nYou had 2 cute teddy bears, and your friend gave you 6 more. \n\nNow, how many teddy bears do you have? \n\nLets add 2 and 6 together. \n\nYou have 8 teddy bears in total now. \n\nWe count the teddy bears one by one. \n\nWe start with 2... 3... 4... 5... 6... 7... 8! \n\nNow, you have a total of 8 teddy bears!</item>
+        <!-- Add more explanations if needed -->
+    </string-array>
+</resources>
