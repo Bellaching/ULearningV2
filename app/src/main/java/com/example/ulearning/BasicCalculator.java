@@ -137,8 +137,10 @@ public class BasicCalculator extends AppCompatActivity implements View.OnClickLi
                 explanation = operand1 + " ÷ " + operand2 + " = " + result;
                 break;
             default:
+
+
                 resultTextView.setText("Invalid operator");
-                
+
                 return;
         }
 
