@@ -4,6 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".multiplication">
+    android:background="@drawable/addbg"
+    tools:context=".Addition">
 
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/addlessonbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="236dp"
+        android:background="@null"
+        android:contentDescription="add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/addlessonbtn" />
+
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/addquizbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:background="@null"
+        android:contentDescription="add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addlessonbtn"
+        app:srcCompat="@drawable/addquizbtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

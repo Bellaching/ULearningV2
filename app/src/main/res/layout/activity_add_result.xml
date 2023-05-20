@@ -21,6 +21,7 @@
 
     <Button
         android:onClick="onClick"
+        android:id="@+id/goback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"

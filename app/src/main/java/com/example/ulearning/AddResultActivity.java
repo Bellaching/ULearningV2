@@ -2,12 +2,15 @@ package com.example.ulearning;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AddResultActivity extends AppCompatActivity {
+public class AddResultActivity extends AppCompatActivity implements View.OnClickListener{
     private TextView resultText;
+    Button goback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +28,16 @@ public class AddResultActivity extends AppCompatActivity {
         resultMessage += "Percentage: " + String.format("%.2f", percentage) + "%";
 
         resultText.setText(resultMessage);
+
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.goback){
+            Intent i = new Intent(AddResultActivity.this, Home.class);
+            startActivity(i);  
+        }
+
     }
 }

@@ -37,7 +37,7 @@ public class divexercise extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addexercise);
+        setContentView(R.layout.activity_divexercise);
 
         answerChoices = findViewById(R.id.answer_choices);
         submitButton = findViewById(R.id.submit_button);
