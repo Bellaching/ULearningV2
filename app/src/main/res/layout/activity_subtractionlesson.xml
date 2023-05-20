@@ -32,30 +32,31 @@
             android:layout_marginTop="240dp"
             android:text="blah blah blah"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:layout_gravity="center_vertical|end"
             android:fontFamily="@font/montserrat"
 
             />
 
 
+
         <Button
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Next"
             android:layout_below="@+id/explanationTextView"
-            android:layout_centerHorizontal="true"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="-2dp"
-            android:width="150dp"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/btnradius"
             android:fontFamily="@font/montserrat"
-            android:text="Next"
+            android:width="150dp"
             android:textColor="@color/white"
             />
 
+
         <Button
-            android:id="@+id/finishButton"
+            android:id="@+id/subfinishButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Finish"

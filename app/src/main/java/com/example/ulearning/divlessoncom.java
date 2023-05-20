@@ -7,22 +7,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class AdditionLessonCom extends AppCompatActivity implements View.OnClickListener{
+public class divlessoncom extends AppCompatActivity  implements View.OnClickListener{
 
-    Button addcongbtn;
+    Button divcongbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addition_lesson_com);
-        addcongbtn = (Button) findViewById(R.id.addcongbtn);
+        setContentView(R.layout.activity_divlessoncom);
+        divcongbtn = (Button) findViewById(R.id.divcongbtn);
     }
+
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.addcongbtn){
-            Intent i = new Intent(AdditionLessonCom.this, addexercise.class);
+
+
+        if (view.getId() == R.id.divcongbtn){
+            Intent i = new Intent(divlessoncom.this, divexercise.class);
             startActivity(i);
         }
+
     }
 }

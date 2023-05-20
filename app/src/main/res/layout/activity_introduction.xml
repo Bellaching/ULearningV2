@@ -30,6 +30,7 @@
         android:backgroundTint="@android:color/holo_orange_dark"
         android:fontFamily="@font/montserrat"
         android:layout_marginTop="190dp"
+        android:textColor="@color/white"
 
         />
 </RelativeLayout>

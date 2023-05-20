@@ -10,26 +10,28 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class addexercise extends AppCompatActivity {
+public class subexercise extends AppCompatActivity {
     private RadioGroup answerChoices;
     private Button submitButton;
     private int currentQuestion = 0;
-    private String[] questions = {
-            "If your friend gives you 5 apples and your mom gives you 10 apples, how many apples do you have?",
-            "If you have 3 apples and your friend gives you 1 apple, how many apples do you have now?",
-            "If you have 8 apples and you buy 15 apples, how many apples do you have?",
-            "If you buy 6 apples at the store and then buy 4 more, how many apples do you have in total?",
-            "If you have 12 apples and your friend has 14 apples and you give him 5 apples, how many apples does your friend have?"
-    };
-    private String[][] choices = {
-            {"5 apples", "10 apples", "15 apples", "20 apples"},
-            {"4 apples", "1 apple", "2 apples", "3 apples"},
-            {"23 apples", "10 apples", "6 apples", "20 apples"},
-            {"6 apples", "8 apples", "10 apples", "12 apples"},
-            {"22 apples", "23 apples", "19 apples", "26 apples"}
+
+    private String[] subtractionQuestions = {
+            "If you have 20 apples and you eat 5 apples, how many apples do you have left?",
+            "If you have 7 apples and you give away 3 apples, how many apples do you have now?",
+            "If you have 23 apples and you sell 15 apples, how many apples do you have?",
+            "If you buy 10 apples at the store and then return 4 apples, how many apples do you have in total?",
+            "If you have 12 apples and your friend has 7 apples and you give him 5 apples, how many apples does your friend have?"
     };
 
-    private int[] answers = {2, 0, 0, 2, 2};
+    private String[][] subtractionChoices = {
+            {"15 apples", "10 apples", "5 apples", "0 apples"},
+            {"4 apples", "7 apples", "3 apples", "10 apples"},
+            {"8 apples", "15 apples", "23 apples", "5 apples"},
+            {"6 apples", "10 apples", "14 apples", "20 apples"},
+            {"2 apples", "7 apples", "0 apples", "5 apples"}
+    };
+
+    private int[] subtractionAnswers = {0, 1, 0, 2, 1};
 
     private int score = 0;
 
@@ -61,13 +63,13 @@ public class addexercise extends AppCompatActivity {
             return;
         }
 
-        if (userAnswerIndex == answers[currentQuestion]) {
+        if (userAnswerIndex == subtractionAnswers[currentQuestion]) {
             score++;
         }
 
         currentQuestion++;
 
-        if (currentQuestion == questions.length) {
+        if (currentQuestion == subtractionQuestions.length) {
             showResultPage();
         } else {
             displayNextQuestion();
@@ -82,23 +84,23 @@ public class addexercise extends AppCompatActivity {
         answerChoices.clearCheck();
 
         TextView questionTextView = findViewById(R.id.question_text);
-        questionTextView.setText(questions[currentQuestion]);
+        questionTextView.setText(subtractionQuestions[currentQuestion]);
 
         RadioButton choice1 = findViewById(R.id.choice1);
         RadioButton choice2 = findViewById(R.id.choice2);
         RadioButton choice3 = findViewById(R.id.choice3);
         RadioButton choice4 = findViewById(R.id.choice4);
 
-        choice1.setText(choices[currentQuestion][0]);
-        choice2.setText(choices[currentQuestion][1]);
-        choice3.setText(choices[currentQuestion][2]);
-        choice4.setText(choices[currentQuestion][3]);
+        choice1.setText(subtractionChoices[currentQuestion][0]);
+        choice2.setText(subtractionChoices[currentQuestion][1]);
+        choice3.setText(subtractionChoices[currentQuestion][2]);
+        choice4.setText(subtractionChoices[currentQuestion][3]);
     }
 
     private void showResultPage() {
         Intent intent = new Intent(this, AddResultActivity.class);
         intent.putExtra("score", score);
-        intent.putExtra("totalQuestions", questions.length);
+        intent.putExtra("totalQuestions",  subtractionQuestions.length);
         startActivity(intent);
         finish();
     }

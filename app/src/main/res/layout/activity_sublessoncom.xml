@@ -8,14 +8,13 @@
     android:background="@drawable/addlessbg"
     >
 
-
     <ImageView
         android:id="@+id/iamgecong"
         android:layout_width="349dp"
         android:layout_height="207dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="230dp"
-        app:srcCompat="@drawable/divisiongo"
+        app:srcCompat="@drawable/subgow"
 
         />
 
@@ -30,7 +29,7 @@
 
     <Button
         android:onClick="onClick"
-        android:id="@+id/addcongbtn"
+        android:id="@+id/subcongbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -43,8 +42,5 @@
         android:textColor="@color/white"
 
         />
-
-
-
 
 </RelativeLayout>

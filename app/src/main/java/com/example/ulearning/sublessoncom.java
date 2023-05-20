@@ -7,21 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class AdditionLessonCom extends AppCompatActivity implements View.OnClickListener{
+public class sublessoncom extends AppCompatActivity implements View.OnClickListener{
 
-    Button addcongbtn;
+    Button subcongbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addition_lesson_com);
-        addcongbtn = (Button) findViewById(R.id.addcongbtn);
+        setContentView(R.layout.activity_sublessoncom);
+        subcongbtn = (Button) findViewById(R.id.subcongbtn);
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.addcongbtn){
-            Intent i = new Intent(AdditionLessonCom.this, addexercise.class);
+        if (view.getId() == R.id.subcongbtn){
+            Intent i = new Intent(sublessoncom.this, subexercise.class);
             startActivity(i);
         }
     }

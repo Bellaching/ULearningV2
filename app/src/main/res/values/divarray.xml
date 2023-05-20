@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="division_explanations">
+        <item> You have 12 cookies, and you want to share them equally among 3 friends. \n\nHow many cookies will each friend get? \n\nDivide 12 by 3. \n\nEach friend will get 4 cookies. \n\nWe distribute the cookies equally. \n\nEach friend gets 4 cookies! \n\nNow, each friend has 4 cookies!</item>
+        <item> You have 20 candies, and you want to divide them equally into 5 bags. \n\nHow many candies will be in each bag? \n\nDivide 20 by 5. \n\nEach bag will have 4 candies. \n\nWe distribute the candies equally. \n\nEach bag gets 4 candies! \n\nNow, each bag has 4 candies!</item>
+        <item> You have 30 balloons, and you want to divide them equally among 6 children. \n\nHow many balloons will each child get? \n\nDivide 30 by 6. \n\nEach child will get 5 balloons. \n\nWe distribute the balloons equally. \n\nEach child gets 5 balloons! \n\nNow, each child has 5 balloons!</item>
+        <item> You have 16 pencils, and you want to share them equally among 4 students. \n\nHow many pencils will each student get? \n\nDivide 16 by 4. \n\nEach student will get 4 pencils. \n\nWe distribute the pencils equally. \n\nEach student gets 4 pencils! \n\nNow, each student has 4 pencils!</item>
+        <item> You have 24 marbles, and you want to divide them equally among 8 friends. \n\nHow many marbles will each friend get? \n\nDivide 24 by 8. \n\nEach friend will get 3 marbles. \n\nWe distribute the marbles equally. \n\nEach friend gets 3 marbles! \n\nNow, each friend has 3 marbles!</item>
+        <!-- Add more explanations if needed -->
+    </string-array>
+
+</resources>

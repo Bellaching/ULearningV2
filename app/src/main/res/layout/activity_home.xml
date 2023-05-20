@@ -37,6 +37,7 @@
         app:srcCompat="@drawable/addbtn" />
 
     <ImageButton
+        android:onClick="onClick"
         android:id="@+id/subbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,6 +51,7 @@
         app:srcCompat="@drawable/subbtn" />
 
     <ImageButton
+        android:onClick="onClick"
         android:id="@+id/divbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,6 +68,7 @@
         app:srcCompat="@drawable/divbtn" />
 
     <ImageButton
+        android:onClick="onClick"
         android:id="@+id/mulbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,15 +91,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="219dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cal" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

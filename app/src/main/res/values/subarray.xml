@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="subtraction_explanations">
+        <item>You had 5 apples, and you ate 2 of them. \n\nNow, how many apples do you have? \n\nSubtract 2 from 5. \n\nYou have 3 apples left. \n\nWe count the apples one by one. \n\nWe start with 5... 4... 3! \n\nNow, you have a total of 3 apples!</item>
+        <item>You had 7 toy cars, and your friend took away 4 of them. \n\nNow, how many toy cars do you have? \n\nSubtract 4 from 7. \n\nYou have 3 toy cars left. \n\nWe count the cars one by one. \n\nWe start with 7... 6... 5... 4... 3! \n\nNow, you have a total of 3 toy cars.</item>
+        <item>You had 12 colorful balloons, and 7 of them popped. \n\nNow, how many balloons do you have? \n\nSubtract 7 from 12. \n\nYou have 5 balloons left. \n\nWe count the balloons one by one. \n\nWe start with 12... 11... 10... 9... 8... 7... 6... 5! \n\nNow, you have a total of 5 balloons!</item>
+        <item>You had 9 yummy cookies, and you shared 3 of them with your friend. \n\nNow, how many cookies do you have? \n\nSubtract 3 from 9. \n\nYou have 6 cookies left. \n\nWe count the cookies one by one. \n\nWe start with 9... 8... 7... 6! \n\nNow, you have a total of 6 cookies!</item>
+        <item>ou had 8 cute teddy bears, and you gave away 4 of them. \n\nNow, how many teddy bears do you have? \n\nSubtract 4 from 8. \n\nYou have 4 teddy bears left. \n\nWe count the teddy bears one by one. \n\nWe start with 8... 7... 6... 5... 4! \n\nNow, you have a total of 4 teddy bears!</item>
+
+    </string-array>
+</resources>

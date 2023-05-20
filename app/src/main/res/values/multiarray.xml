@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="multiplication_explanations">
+    <item>You have 3 boxes, and each box contains 4 apples. \n\nHow many apples do you have in total? \n\nMultiply 3 by 4. \n\nYou have 12 apples in total. \n\nWe count the apples one by one. \n\nWe start with 4... 8... 12! \n\nNow, you have a total of 12 apples!</item>
+    <item>You have 5 bags, and each bag contains 6 marbles. \n\nHow many marbles do you have in total? \n\nMultiply 5 by 6. \n\nYou have 30 marbles in total. \n\nWe count the marbles one by one. \n\nWe start with 6... 12... 18... 24... 30! \n\nNow, you have a total of 30 marbles!</item>
+    <item>You have 2 trays, and each tray contains 8 cupcakes. \n\nHow many cupcakes do you have in total? \n\nMultiply 2 by 8. \n\nYou have 16 cupcakes in total. \n\nWe count the cupcakes one by one. \n\nWe start with 8... 16! \n\nNow, you have a total of 16 cupcakes!</item>
+    <item>You have 4 jars, and each jar contains 3 candies. \n\nHow many candies do you have in total? \n\nMultiply 4 by 3. \n\nYou have 12 candies in total. \n\nWe count the candies one by one. \n\nWe start with 3... 6... 9... 12! \n\nNow, you have a total of 12 candies!</item>
+    <item>You have 6 packs, and each pack contains 2 pencils. \n\nHow many pencils do you have in total? \n\nMultiply 6 by 2. \n\nYou have 12 pencils in total. \n\nWe count the pencils one by one. \n\nWe start with 2... 4... 6... 8... 10... 12! \n\nNow, you have a total of 12 pencils!</item>
+    <!-- Add more explanations if needed -->
+</string-array>
+</resources>

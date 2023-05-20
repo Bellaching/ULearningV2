@@ -10,26 +10,27 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class addexercise extends AppCompatActivity {
+public class divexercise extends AppCompatActivity {
     private RadioGroup answerChoices;
     private Button submitButton;
     private int currentQuestion = 0;
-    private String[] questions = {
-            "If your friend gives you 5 apples and your mom gives you 10 apples, how many apples do you have?",
-            "If you have 3 apples and your friend gives you 1 apple, how many apples do you have now?",
-            "If you have 8 apples and you buy 15 apples, how many apples do you have?",
-            "If you buy 6 apples at the store and then buy 4 more, how many apples do you have in total?",
-            "If you have 12 apples and your friend has 14 apples and you give him 5 apples, how many apples does your friend have?"
-    };
-    private String[][] choices = {
-            {"5 apples", "10 apples", "15 apples", "20 apples"},
-            {"4 apples", "1 apple", "2 apples", "3 apples"},
-            {"23 apples", "10 apples", "6 apples", "20 apples"},
-            {"6 apples", "8 apples", "10 apples", "12 apples"},
-            {"22 apples", "23 apples", "19 apples", "26 apples"}
+    private String[] divisionQuestions = {
+            "If you have 15 apples and you share them equally among 3 friends, how many apples does each friend get?",
+            "If you have 6 apples and you divide them equally into 2 baskets, how many apples are there in each basket?",
+            "If you have 24 cookies and you want to distribute them evenly among 8 plates, how many cookies will be on each plate?",
+            "If you have 10 candies and you want to divide them equally among 2 children, how many candies will each child get?",
+            "If you have 18 pencils and you want to distribute them equally among 6 students, how many pencils will each student receive?"
     };
 
-    private int[] answers = {2, 0, 0, 2, 2};
+    private String[][] divisionChoices = {
+            {"5 apples", "3 apples", "4 apples", "7 apples"},
+            {"3 apples", "2 apples", "6 apples", "4 apples"},
+            {"4 cookies", "3 cookies", "2 cookies", "6 cookies"},
+            {"5 candies", "8 candies", "2 candies", "10 candies"},
+            {"3 pencils", "6 pencils", "4 pencils", "2 pencils"}
+    };
+
+    private int[] divisionAnswers = {1, 0, 1, 2, 1};
 
     private int score = 0;
 
@@ -61,13 +62,13 @@ public class addexercise extends AppCompatActivity {
             return;
         }
 
-        if (userAnswerIndex == answers[currentQuestion]) {
+        if (userAnswerIndex == divisionAnswers[currentQuestion]) {
             score++;
         }
 
         currentQuestion++;
 
-        if (currentQuestion == questions.length) {
+        if (currentQuestion == divisionQuestions .length) {
             showResultPage();
         } else {
             displayNextQuestion();
@@ -82,23 +83,23 @@ public class addexercise extends AppCompatActivity {
         answerChoices.clearCheck();
 
         TextView questionTextView = findViewById(R.id.question_text);
-        questionTextView.setText(questions[currentQuestion]);
+        questionTextView.setText(divisionQuestions [currentQuestion]);
 
         RadioButton choice1 = findViewById(R.id.choice1);
         RadioButton choice2 = findViewById(R.id.choice2);
         RadioButton choice3 = findViewById(R.id.choice3);
         RadioButton choice4 = findViewById(R.id.choice4);
 
-        choice1.setText(choices[currentQuestion][0]);
-        choice2.setText(choices[currentQuestion][1]);
-        choice3.setText(choices[currentQuestion][2]);
-        choice4.setText(choices[currentQuestion][3]);
+        choice1.setText( divisionChoices [currentQuestion][0]);
+        choice2.setText( divisionChoices [currentQuestion][1]);
+        choice3.setText( divisionChoices [currentQuestion][2]);
+        choice4.setText( divisionChoices [currentQuestion][3]);
     }
 
     private void showResultPage() {
-        Intent intent = new Intent(this, AddResultActivity.class);
+        Intent intent = new Intent(this, divresult.class);
         intent.putExtra("score", score);
-        intent.putExtra("totalQuestions", questions.length);
+        intent.putExtra("totalQuestions", divisionQuestions .length);
         startActivity(intent);
         finish();
     }
