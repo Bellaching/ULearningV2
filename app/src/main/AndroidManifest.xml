@@ -14,6 +14,15 @@
         android:theme="@style/Theme.ULearning"
         tools:targetApi="31">
         <activity
+            android:name=".Scoretracking"
+            android:exported="false" />
+        <activity
+            android:name=".additionquizresult"
+            android:exported="false" />
+        <activity
+            android:name=".additionquiz"
+            android:exported="false" />
+        <activity
             android:name=".divlesson"
             android:exported="false" />
         <activity

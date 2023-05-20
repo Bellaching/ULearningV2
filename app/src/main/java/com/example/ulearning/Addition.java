@@ -25,6 +25,15 @@ public class Addition extends AppCompatActivity implements View.OnClickListener{
         if(view.getId() == R.id.addlessonbtn){
             Intent i = new Intent(Addition.this,additionlesson.class);
             startActivity(i);
+
+
+        }
+
+        if(view.getId() == R.id.addquizbtn){
+            Intent i = new Intent(Addition.this,additionquiz.class);
+            startActivity(i);
+
+
         }
     }
 }

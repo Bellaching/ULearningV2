@@ -1,9 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".multilessoncom">
+    tools:context=".AdditionLessonCom"
+    android:background="@drawable/addlessbg"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/iamgecong"
+        android:layout_width="349dp"
+        android:layout_height="207dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="230dp"
+        app:srcCompat="@drawable/multigo"
+
+        />
+
+    <ImageView
+        android:id="@+id/cong"
+        android:layout_width="90dp"
+        android:layout_height="263dp"
+        android:layout_below="@+id/iamgecong"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="-74dp"
+        app:srcCompat="@drawable/cong" />
+
+    <Button
+        android:onClick="onClick"
+        android:id="@+id/multicongbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Take exercise"
+        android:layout_below="@+id/cong"
+        android:background="@drawable/btnradius"
+        android:fontFamily="@font/montserrat"
+        android:width="150dp"
+        android:textColor="@color/white"
+
+        />
+
+
+
+
+</RelativeLayout>

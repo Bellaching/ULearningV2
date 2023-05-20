@@ -1,9 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".multilesson">
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/addlessbg"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Example"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="180dp"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            />
+        <TextView
+            android:id="@+id/explanationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="240dp"
+            android:text="blah blah blah"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical|end"
+            android:fontFamily="@font/montserrat"
+
+            />
+
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/explanationTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="-2dp"
+            android:width="150dp"
+            android:background="@drawable/btnradius"
+            android:fontFamily="@font/montserrat"
+            android:text="Next"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/finishButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finish"
+            android:layout_below="@+id/explanationTextView"
+            android:layout_marginLeft="40dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btnradius"
+            android:fontFamily="@font/montserrat"
+            android:width="150dp"
+            android:textColor="@color/white"
+            />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

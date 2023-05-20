@@ -1,9 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".multiexercise">
+    android:padding="16dp"
+    android:background="@drawable/addlessbg"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="190dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:text="woekwoeko"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+
+        android:fontFamily="@font/montserrat"
+        />
+
+    <RadioGroup
+        android:id="@+id/answer_choices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/question_text"
+
+        android:paddingStart="16dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="1dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+
+
+        >
+
+        <RadioButton
+            android:id="@+id/choice1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:padding="20dp"
+
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/white"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="1dp"
+
+
+
+            />
+
+        <RadioButton
+            android:id="@+id/choice2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:padding="20dp"
+
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/white"
+            android:layout_marginBottom="15dp"
+            />
+
+        <RadioButton
+            android:id="@+id/choice3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:padding="20dp"
+
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/white"
+            android:layout_marginBottom="15dp"
+            />
+
+        <RadioButton
+            android:id="@+id/choice4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:padding="20dp"
+
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/white"
+            android:layout_marginBottom="15dp"
+            />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/answer_choices"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Submit"
+        android:background="@drawable/btnradius"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/white"
+        />
+
+</RelativeLayout>
