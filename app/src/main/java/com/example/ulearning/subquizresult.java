@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class additionquizresult extends AppCompatActivity {
+public class subquizresult extends AppCompatActivity {
     private int score;
     private static final String SCORE_PREFS = "ScorePrefs";
     private static final String KEY_SCORE = "score";
@@ -16,9 +16,9 @@ public class additionquizresult extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_additionquizresult);
+        setContentView(R.layout.activity_subquizresult);
 
-        TextView additionScoreTextView = findViewById(R.id.additionScoreTextView);
+        TextView subscoreTextView = findViewById(R.id.subscoreTextView);
         TextView resultTextView = findViewById(R.id.resultTextView);
         Button scoreButton = findViewById(R.id.scoreButton);
 
@@ -28,7 +28,7 @@ public class additionquizresult extends AppCompatActivity {
         // Save the score in SharedPreferences
         saveScore(score);
 
-        additionScoreTextView.setText("Score: " + score);
+        subscoreTextView.setText("Score: " + score);
 
         // Set the result message based on the score
         if (score >= 7) {
@@ -41,7 +41,7 @@ public class additionquizresult extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Navigate to the Scoretracking activity
-                startActivity(new Intent(additionquizresult.this, Scoretracking.class));
+                startActivity(new Intent(subquizresult.this, Scoretracking.class));
             }
         });
     }
@@ -49,7 +49,7 @@ public class additionquizresult extends AppCompatActivity {
     private void saveScore(int score) {
         SharedPreferences sharedPreferences = getSharedPreferences(SCORE_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("addition_score", score);
+        editor.putInt("subtraction_score", score);
         editor.apply();
     }
 

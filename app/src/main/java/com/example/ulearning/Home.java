@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class Home extends AppCompatActivity implements View.OnClickListener{
 
-    ImageButton addbtn,subbtn;
+    ImageButton addbtn,subbtn,scoretracker,divbtn,mulbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,9 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_home);
         addbtn = (ImageButton) findViewById(R.id.addbtn);
         subbtn = (ImageButton) findViewById(R.id.subbtn);
+        divbtn = (ImageButton) findViewById(R.id.divbtn);
+        mulbtn = (ImageButton) findViewById(R.id.mulbtn);
+        scoretracker = (ImageButton) findViewById(R.id. scoretracker);
 
 
 
@@ -43,6 +46,11 @@ public class Home extends AppCompatActivity implements View.OnClickListener{
 
         else if (view.getId() == R.id.mulbtn){
             Intent i = new Intent(Home.this, multiplication.class);
+            startActivity(i);
+        }
+
+        else if (view.getId() == R.id.scoretracker){
+            Intent i = new Intent(Home.this, Scoretracking.class);
             startActivity(i);
         }
     }

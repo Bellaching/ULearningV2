@@ -26,5 +26,10 @@ public class subtraction extends AppCompatActivity implements View.OnClickListen
             Intent i = new Intent(subtraction.this,additionlesson.class);
             startActivity(i);
         }
+
+        else if (view.getId() == R.id.subquizbtn){
+            Intent i = new Intent(subtraction.this, subquiz.class);
+            startActivity(i);
+        }
     }
 }

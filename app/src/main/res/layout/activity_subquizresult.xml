@@ -6,7 +6,7 @@
     >
 
     <TextView
-        android:id="@+id/additionScoreTextView"
+        android:id="@+id/subscoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_below="@id/additionScoreTextView"
+        android:layout_below="@id/subscoreTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textColor="@android:color/black"
@@ -31,9 +31,11 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="40dp"
 
+
         />
 
     <Button
+        android:onClick="onClick"
         android:id="@+id/scoreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

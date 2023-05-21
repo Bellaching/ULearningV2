@@ -91,7 +91,20 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-
+    <ImageButton
+        android:onClick="onClick"
+        android:id="@+id/scoretracker"
+        android:layout_width="251dp"
+        android:layout_height="139dp"
+        android:layout_marginBottom="60dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/scoretrack"
+        android:contentDescription="add"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

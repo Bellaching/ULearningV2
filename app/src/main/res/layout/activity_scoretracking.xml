@@ -2,15 +2,162 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@drawable/bgtrackerss">
 
-    <TextView
-        android:id="@+id/scoreTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:textColor="@android:color/black" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/additionscore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="200dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@android:color/white"
+                android:padding="30dp"
+                android:fontFamily="@font/montserrat"
+                android:text="ewfwefwefwe"
+                android:background="@drawable/trackerbgscore"
+                android:width="280dp"
+                />
+
+            <Button
+                android:id="@+id/addAgainButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Try Again"
+                android:layout_below="@id/additionscore"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:background="@drawable/btnradius"
+                android:fontFamily="@font/montserrat"
+                />
+
+            <TextView
+                android:id="@+id/subscore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@android:color/white"
+                android:padding="30dp"
+                android:fontFamily="@font/montserrat"
+                android:text="ewfwefwefwe"
+                android:layout_below="@id/addAgainButton"
+                android:background="@drawable/subbgt"
+                android:width="280dp"
+                />
+
+            <Button
+                android:id="@+id/subAgainButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Try Again"
+                android:layout_below="@id/subscore"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:background="@drawable/btnradius"
+                android:fontFamily="@font/montserrat"
+                />
+
+            <TextView
+                android:id="@+id/divscore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@android:color/white"
+                android:padding="30dp"
+                android:fontFamily="@font/montserrat"
+                android:text="ewfwefwefwe"
+                android:layout_below="@id/subAgainButton"
+                android:background="@drawable/divbgt"
+                android:width="280dp"
+                />
+
+            <Button
+                android:id="@+id/divAgainButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Try Again"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:layout_below="@id/divscore"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                android:background="@drawable/btnradius"
+                android:fontFamily="@font/montserrat"
+                />
+
+            <TextView
+                android:id="@+id/mulscore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@android:color/white"
+                android:padding="30dp"
+                android:fontFamily="@font/montserrat"
+                android:text="ewfwefwefwe"
+                android:layout_below="@id/divAgainButton"
+                android:background="@drawable/mulbgt"
+                android:width="280dp"
+                />
+
+            <Button
+                android:id="@+id/mulAgainButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Try Again"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:layout_below="@id/mulscore"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                android:background="@drawable/btnradius"
+                android:fontFamily="@font/montserrat"
+                />
+
+            <Button
+                android:id="@+id/homeback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:layout_below="@id/mulAgainButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btnradius"
+                android:fontFamily="@font/montserrat"
+                android:width="200dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:height="60dp"
+                android:layout_marginBottom="30dp"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
