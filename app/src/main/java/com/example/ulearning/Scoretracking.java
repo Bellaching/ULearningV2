@@ -1,5 +1,4 @@
 package com.example.ulearning;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,11 +11,15 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Scoretracking extends AppCompatActivity implements View.OnClickListener {
     private int additionScore;
     private int subtractionScore;
+    private int divisionScore;
+    private int multiplicationScore;
 
     private static final String SCORE_PREFS = "ScorePrefs";
 
     private TextView additionScoreTextView;
     private TextView subtractionScoreTextView;
+    private TextView divScoreTextView;
+    private TextView mulscoreTextView;
     private Button addAgainButton;
     private Button subAgainButton;
     private Button divAgainButton;
@@ -30,6 +33,8 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
 
         additionScoreTextView = findViewById(R.id.additionscore);
         subtractionScoreTextView = findViewById(R.id.subscore);
+        divScoreTextView = findViewById(R.id.divscore);
+        mulscoreTextView = findViewById(R.id.mulscore);
         addAgainButton = findViewById(R.id.addAgainButton);
         subAgainButton = findViewById(R.id.subAgainButton);
         divAgainButton = findViewById(R.id.divAgainButton);
@@ -42,15 +47,16 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
         mulAgainButton.setOnClickListener(this);
         homeButton.setOnClickListener(this);
 
-        // Retrieve the scores for each quiz from SharedPreferences
         additionScore = getScoreFromSharedPreferences("addition_score");
         subtractionScore = getScoreFromSharedPreferences("subtraction_score");
+        divisionScore = getScoreFromSharedPreferences("division_score");
+        multiplicationScore = getScoreFromSharedPreferences("multiplication_score");
 
-        // Display the scores for each quiz
         additionScoreTextView.setText("Addition Quiz: " + additionScore);
         subtractionScoreTextView.setText("Subtraction Quiz: " + subtractionScore);
+        divScoreTextView.setText("Division Quiz: " + divisionScore);
+        mulscoreTextView.setText("Division Quiz: " + multiplicationScore);
 
-        // Check if the user passed or failed each quiz and update the UI accordingly
         updateQuizResults();
     }
 
@@ -60,45 +66,81 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
     }
 
     private void updateQuizResults() {
-        if (additionScore > 7) {
+        if (additionScore == 0) {
+            // Quiz not taken yet
+            additionScoreTextView.append("\nYou have not taken this quiz yet.");
+            addAgainButton.setVisibility(View.GONE);}
+        else if (additionScore > 7) {
             additionScoreTextView.append("\nCongratulations, you passed!");
             addAgainButton.setVisibility(View.GONE);
         } else {
             additionScoreTextView.append("\nI'm sorry, but you failed");
             addAgainButton.setVisibility(View.VISIBLE);
         }
+        if (additionScore == 0) {
+            // Quiz not taken yet
+            subtractionScoreTextView.append("\nYou have not taken this quiz yet.");
+            subAgainButton.setVisibility(View.GONE);}
 
-        if (subtractionScore > 7) {
+        else if (subtractionScore > 7) {
             subtractionScoreTextView.append("\nCongratulations, you passed!");
             subAgainButton.setVisibility(View.GONE);
         } else {
             subtractionScoreTextView.append("\nI'm sorry, but you failed");
             subAgainButton.setVisibility(View.VISIBLE);
         }
+        if (additionScore == 0) {
+            // Quiz not taken yet
+            subtractionScoreTextView.append("\nYou have not taken this quiz yet.");
+            subAgainButton.setVisibility(View.GONE);}
+
+        else if (divisionScore > 7) {
+            divScoreTextView.append("\nCongratulations, you passed!");
+            divAgainButton.setVisibility(View.GONE);
+        } else {
+            divScoreTextView.append("\nI'm sorry, but you failed");
+            divAgainButton.setVisibility(View.VISIBLE);
+        }
+        if (additionScore == 0) {
+            // Quiz not taken yet
+            subtractionScoreTextView.append("\nYou have not taken this quiz yet.");
+            subAgainButton.setVisibility(View.GONE);}
+
+        else if (multiplicationScore > 7) {
+            mulscoreTextView.append("\nCongratulations, you passed!");
+            mulAgainButton.setVisibility(View.GONE);
+        } else {
+            mulscoreTextView.append("\nI'm sorry, but you failed");
+            mulAgainButton.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.addAgainButton) {
-            // Restart the addition quiz
-            Intent intent = new Intent(Scoretracking.this, additionquiz.class);
-            startActivity(intent);
-        } else if (view.getId() == R.id.subAgainButton) {
-            // Restart the subtraction quiz
-            Intent intent = new Intent(Scoretracking.this, subquiz.class);
-            startActivity(intent);
-        } else if (view.getId() == R.id.divAgainButton) {
-            // Restart the division quiz
-            Intent intent = new Intent(Scoretracking.this, subquiz.class);
-            startActivity(intent);
-        } else if (view.getId() == R.id.mulAgainButton) {
-            // Restart the multiplication quiz
-            Intent intent = new Intent(Scoretracking.this, subquiz.class);
-            startActivity(intent);
-        } else if (view.getId() == R.id.homeback) {
-            // Go back to the home screen
-            Intent intent = new Intent(Scoretracking.this, Home.class);
-            startActivity(intent);
+        Intent intent;
+        switch (view.getId()) {
+            case R.id.addAgainButton:
+                intent = new Intent(Scoretracking.this, additionquiz.class);
+                startActivity(intent);
+
+
+                break;
+            case R.id.subAgainButton:
+                intent = new Intent(Scoretracking.this, subquiz.class);
+                startActivity(intent);
+                break;
+            case R.id.divAgainButton:
+                intent = new Intent(Scoretracking.this, divquiz.class);
+                startActivity(intent);
+                break;
+            case R.id.mulAgainButton:
+                intent = new Intent(Scoretracking.this, mulquiz.class);
+                startActivity(intent);
+                break;
+            case R.id.homeback:
+                intent = new Intent(Scoretracking.this, Home.class);
+                startActivity(intent);
+                break;
         }
     }
 }

@@ -6,7 +6,7 @@
     >
 
     <TextView
-        android:id="@+id/subscoreTextView"
+        android:id="@+id/mulscoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:layout_below="@id/subscoreTextView"
+        android:layout_below="@id/mulscoreTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textColor="@android:color/black"

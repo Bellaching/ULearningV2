@@ -22,7 +22,7 @@
 
     <ImageButton
         android:onClick="onClick"
-        android:id="@+id/divquizbtn"
+        android:id="@+id/mulquizbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"

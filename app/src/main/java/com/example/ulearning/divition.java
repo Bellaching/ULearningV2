@@ -9,25 +9,26 @@ import android.widget.ImageButton;
 
 public class divition extends AppCompatActivity implements View.OnClickListener{
 
-    ImageButton sublessonbtn, subquizbtn;
+    ImageButton divlessonbtn, divquizbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_divition);
 
-        sublessonbtn = (ImageButton) findViewById(R.id.sublessonbtn);
-        subquizbtn= (ImageButton) findViewById(R.id.subquizbtn);
+        divlessonbtn = (ImageButton) findViewById(R.id.divlessonbtn);
+        divquizbtn= (ImageButton) findViewById(R.id.divquizbtn);
     }
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.sublessonbtn){
+        if(view.getId() == R.id.divlessonbtn)
+        {
             Intent i = new Intent(divition.this,divlesson.class);
             startActivity(i);
         }
-        else if (view.getId() == R.id.subquizbtn){
-            Intent i = new Intent(divition.this,additionlesson.class);
+        else if (view.getId() == R.id.divquizbtn){
+            Intent i = new Intent(divition.this,divquiz.class);
             startActivity(i);
         }
 

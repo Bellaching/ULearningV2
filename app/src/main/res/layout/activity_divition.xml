@@ -9,7 +9,7 @@
 
     <ImageButton
         android:onClick="onClick"
-        android:id="@+id/sublessonbtn"
+        android:id="@+id/divlessonbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="290dp"
@@ -22,7 +22,7 @@
 
     <ImageButton
         android:onClick="onClick"
-        android:id="@+id/subquizbtn"
+        android:id="@+id/divquizbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -30,6 +30,6 @@
         android:contentDescription="add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sublessonbtn"
+        app:layout_constraintTop_toBottomOf="@+id/divlessonbtn"
         app:srcCompat="@drawable/divquizbtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

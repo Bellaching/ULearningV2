@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/iamgecong"
-        android:layout_width="349dp"
-        android:layout_height="207dp"
+        android:layout_width="324dp"
+        android:layout_height="167dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="230dp"
         app:srcCompat="@drawable/addgo"
@@ -25,26 +25,24 @@
         android:layout_height="263dp"
         android:layout_below="@+id/iamgecong"
         android:layout_marginLeft="145dp"
-        android:layout_marginTop="-74dp"
+        android:layout_marginTop="-25dp"
         app:srcCompat="@drawable/cong" />
 
     <Button
-        android:onClick="onClick"
         android:id="@+id/addcongbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Take exercise"
         android:layout_below="@+id/cong"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-25dp"
+        android:width="150dp"
         android:background="@drawable/btnradius"
         android:fontFamily="@font/montserrat"
-        android:width="150dp"
+        android:onClick="onClick"
+        android:text="Take exercise"
         android:textColor="@color/white"
 
         />
-
-
 
 
 </RelativeLayout>

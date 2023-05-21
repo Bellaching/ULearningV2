@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class additionquizresult extends AppCompatActivity {
+public class divquizresult extends AppCompatActivity {
     private int score;
     private static final String SCORE_PREFS = "ScorePrefs";
     private static final String KEY_SCORE = "score";
@@ -41,7 +41,7 @@ public class additionquizresult extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Navigate to the Scoretracking activity
-                startActivity(new Intent(additionquizresult.this, Scoretracking.class));
+                startActivity(new Intent(divquizresult.this, Scoretracking.class));
             }
         });
     }
@@ -49,7 +49,7 @@ public class additionquizresult extends AppCompatActivity {
     private void saveScore(int score) {
         SharedPreferences sharedPreferences = getSharedPreferences(SCORE_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("addition_score", score);
+        editor.putInt("division_score", score);
         editor.apply();
     }
 

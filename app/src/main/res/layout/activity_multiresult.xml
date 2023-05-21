@@ -12,11 +12,13 @@
         android:id="@+id/result_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
         android:fontFamily="@font/montserrat"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         />
 
     <Button

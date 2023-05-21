@@ -32,9 +32,9 @@ public class subquizresult extends AppCompatActivity {
 
         // Set the result message based on the score
         if (score >= 7) {
-            resultTextView.setText("Congratulations, you passed!");
+            resultTextView.setText("Congratulations, \nyou passed!");
         } else {
-            resultTextView.setText("Sorry, you did not pass. Try again!");
+            resultTextView.setText("Sorry, you did not pass. \nTry again!");
         }
 
         scoreButton.setOnClickListener(new View.OnClickListener() {
