@@ -2,6 +2,7 @@ package com.example.ulearning;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import org.mindrot.jbcrypt.BCrypt;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,6 +19,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.mindrot.jbcrypt.BCrypt;
 
 public class LogIn extends AppCompatActivity {
 
@@ -62,9 +65,10 @@ public class LogIn extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.hasChild(usernametxt)) {
-                                final String getPassword = snapshot.child(usernametxt).child("password").getValue(String.class);
+                                final String hashedPassword = snapshot.child(usernametxt).child("password").getValue(String.class);
 
-                                if (getPassword.equals(passwordtxt)) {
+                                // Compare the entered password with the stored hashed password using BCrypt
+                                if (BCrypt.checkpw(passwordtxt, hashedPassword)) {
                                     Toast.makeText(LogIn.this, "Successfully Logged In", Toast.LENGTH_SHORT).show();
 
                                     if (rememberMeCheckbox.isChecked()) {
@@ -80,7 +84,7 @@ public class LogIn extends AppCompatActivity {
                                     startActivity(new Intent(LogIn.this, Home.class));
                                     finish();
                                 } else {
-                                    Toast.makeText(LogIn.this, "Wrong password. try again", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LogIn.this, "Wrong password. Try again", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 Toast.makeText(LogIn.this, "Wrong username", Toast.LENGTH_SHORT).show();
@@ -95,6 +99,7 @@ public class LogIn extends AppCompatActivity {
                 }
             }
         });
+
 
         signuptxt.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -3,6 +3,8 @@ package com.example.ulearning;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,7 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class signup extends AppCompatActivity {
-    DatabaseReference  databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://ulearning-ddf76-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://ulearning-ddf76-default-rtdb.firebaseio.com/");
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,8 @@ public class signup extends AppCompatActivity {
 
         final Button registerbtn = findViewById(R.id.registerbtn);
         final TextView alreadyhvaccount = findViewById(R.id.alreadyhvaccount);
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,25 +62,34 @@ public class signup extends AppCompatActivity {
                             throw new IllegalArgumentException("Password must be 8 characters long");
                         }
 
+                        // Encrypt the password using bcrypt
+                        String hashedPassword = BCrypt.hashpw(passwordtxt, BCrypt.gensalt());
+
                         databaseReference.child("user").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if (snapshot.hasChild(usernametxt)) {
-                                    Toast.makeText(signup.this, "Email is already registered", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(signup.this, "Username is already taken", Toast.LENGTH_SHORT).show();
                                 } else {
                                     databaseReference.child("user").child(usernametxt).child("name").setValue(nametxt);
                                     databaseReference.child("user").child(usernametxt).child("age").setValue(agetxt);
                                     databaseReference.child("user").child(usernametxt).child("email").setValue(emailtxt);
-                                    databaseReference.child("user").child(usernametxt).child("password").setValue(passwordtxt);
+                                    databaseReference.child("user").child(usernametxt).child("password").setValue(hashedPassword);
 
                                     Toast.makeText(signup.this, "User registered successfully.", Toast.LENGTH_SHORT).show();
+
+
+                                    Intent intent = new Intent(signup.this, LogIn.class);
+                                    //intent.putExtra("username", usernametxt);
+                                    startActivity(intent);
+
                                     finish();
                                 }
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
+                                // Handle database error
                             }
                         });
                     } catch (IllegalArgumentException e) {
@@ -89,5 +105,13 @@ public class signup extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private String getCurrentUsername() {
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if (currentUser != null) {
+            return currentUser.getDisplayName();
+        }
+        return null;
     }
 }

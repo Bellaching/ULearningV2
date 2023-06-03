@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@drawable/addlessbg"
-    >
+    android:background="@drawable/addlessbg">
 
     <TextView
         android:id="@+id/question_text"
@@ -15,9 +14,8 @@
         android:textSize="20sp"
         android:textColor="@color/white"
         android:text="woekwoeko"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:fontFamily="@font/montserrat"
         />
 
@@ -26,18 +24,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/question_text"
-
         android:paddingStart="16dp"
         android:orientation="vertical"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginBottom="1dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-
-
-
-        >
+        android:layout_marginTop="50dp">
 
         <RadioButton
             android:id="@+id/choice1"
@@ -45,15 +38,10 @@
             android:layout_height="wrap_content"
             android:text=""
             android:padding="20dp"
-
             android:fontFamily="@font/montserrat"
             android:textColor="@color/white"
             android:layout_marginBottom="15dp"
-            android:layout_marginTop="1dp"
-
-
-
-            />
+            android:layout_marginTop="1dp"/>
 
         <RadioButton
             android:id="@+id/choice2"
@@ -61,11 +49,9 @@
             android:layout_height="wrap_content"
             android:text=""
             android:padding="20dp"
-
             android:fontFamily="@font/montserrat"
             android:textColor="@color/white"
-            android:layout_marginBottom="15dp"
-            />
+            android:layout_marginBottom="15dp"/>
 
         <RadioButton
             android:id="@+id/choice3"
@@ -73,11 +59,9 @@
             android:layout_height="wrap_content"
             android:text=""
             android:padding="20dp"
-
             android:fontFamily="@font/montserrat"
             android:textColor="@color/white"
-            android:layout_marginBottom="15dp"
-            />
+            android:layout_marginBottom="15dp"/>
 
         <RadioButton
             android:id="@+id/choice4"
@@ -85,12 +69,9 @@
             android:layout_height="wrap_content"
             android:text=""
             android:padding="20dp"
-
             android:fontFamily="@font/montserrat"
             android:textColor="@color/white"
-            android:layout_marginBottom="15dp"
-            />
-
+            android:layout_marginBottom="15dp"/>
     </RadioGroup>
 
     <Button
@@ -103,7 +84,5 @@
         android:text="Submit"
         android:background="@drawable/btnradius"
         android:fontFamily="@font/montserrat"
-        android:textColor="@color/white"
-        />
-
+        android:textColor="@color/white"/>
 </RelativeLayout>

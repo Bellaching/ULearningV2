@@ -8,10 +8,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class additionquizresult extends AppCompatActivity {
     private int score;
     private static final String SCORE_PREFS = "ScorePrefs";
     private static final String KEY_SCORE = "score";
+    private DatabaseReference databaseRef;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +51,18 @@ public class additionquizresult extends AppCompatActivity {
                 startActivity(new Intent(additionquizresult.this, Scoretracking.class));
             }
         });
+
+        // Get the username from the FirebaseUser object
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            username = currentUser.getDisplayName();
+        } else {
+            // Handle the case when the user is not logged in
+            username = "";
+        }
+
+        // Save the score in Firebase under the username
+        saveScoreToFirebase(score);
     }
 
     private void saveScore(int score) {
@@ -53,5 +72,10 @@ public class additionquizresult extends AppCompatActivity {
         editor.apply();
     }
 
-
+    private void saveScoreToFirebase(int score) {
+        if (!username.isEmpty()) {
+            databaseRef = FirebaseDatabase.getInstance().getReference();
+            databaseRef.child("scores").child(username).child("score").child("addition_score").setValue(score);
+        }
+    }
 }
