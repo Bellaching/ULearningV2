@@ -27,6 +27,7 @@ public class LogIn extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://ulearning-ddf76-default-rtdb.firebaseio.com/");
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    public static String usernametxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class LogIn extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String usernametxt = username.getText().toString();
+                usernametxt = username.getText().toString();
                 final String passwordtxt = password.getText().toString();
 
                 if (usernametxt.isEmpty() || passwordtxt.isEmpty()) {

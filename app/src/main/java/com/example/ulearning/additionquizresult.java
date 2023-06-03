@@ -6,10 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,9 +35,6 @@ public class additionquizresult extends AppCompatActivity {
 
         // Retrieve the score from the intent
         score = getIntent().getIntExtra("score", 0);
-
-
-
         additionScoreTextView.setText("Score: " + score);
 
         // Set the result message based on the score
@@ -50,16 +51,7 @@ public class additionquizresult extends AppCompatActivity {
                 startActivity(new Intent(additionquizresult.this, Scoretracking.class));
             }
         });
-
-        // Get the username from the FirebaseUser object
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser != null) {
-            username = currentUser.getDisplayName();
-        } else {
-            // Handle the case when the user is not logged in
-            username = "";
-        }
-
+        username = LogIn.usernametxt;
         // Save the score in Firebase under the username
         saveScoreToFirebase(score);
     }
