@@ -8,11 +8,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 public class mulquizresult extends AppCompatActivity {
     private int score;
     private static final String SCORE_PREFS = "ScorePrefs";
     private static final String KEY_SCORE = "score";
+
+    private DatabaseReference databaseRef;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +31,6 @@ public class mulquizresult extends AppCompatActivity {
 
         // Retrieve the score from the intent
         score = getIntent().getIntExtra("score", 0);
-
-
-
         mulscoreTextView.setText("Score: " + score);
 
         // Set the result message based on the score
@@ -44,9 +47,17 @@ public class mulquizresult extends AppCompatActivity {
                 startActivity(new Intent(mulquizresult.this, Scoretracking.class));
             }
         });
+        username = LogIn.usernametxt;
+        // Save the score in Firebase under the username
+        saveScoreToFirebase(score);
     }
 
-
+    private void saveScoreToFirebase(int score) {
+        if (!username.isEmpty()) {
+            databaseRef = FirebaseDatabase.getInstance().getReference();
+            databaseRef.child("scores").child(username).child("score").child("multiplication_score").setValue(score);
+        }
+    }
 
 
 }
