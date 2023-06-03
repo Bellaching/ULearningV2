@@ -8,10 +8,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class divquizresult extends AppCompatActivity {
     private int score;
     private static final String SCORE_PREFS = "ScorePrefs";
     private static final String KEY_SCORE = "score";
+
+    private DatabaseReference databaseRef;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +49,17 @@ public class divquizresult extends AppCompatActivity {
                 startActivity(new Intent(divquizresult.this, Scoretracking.class));
             }
         });
+        username = LogIn.usernametxt;
+
+        saveScoreToFirebase(score);
     }
 
-
+    private void saveScoreToFirebase(int score) {
+        if (!username.isEmpty()) {
+            databaseRef = FirebaseDatabase.getInstance().getReference();
+            databaseRef.child("scores").child(username).child("score").child("division_score").setValue(score);
+        }
+    }
 
 
 }
