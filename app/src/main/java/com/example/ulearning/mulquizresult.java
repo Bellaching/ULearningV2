@@ -26,8 +26,7 @@ public class mulquizresult extends AppCompatActivity {
         // Retrieve the score from the intent
         score = getIntent().getIntExtra("score", 0);
 
-        // Save the score in SharedPreferences
-        saveScore(score);
+
 
         mulscoreTextView.setText("Score: " + score);
 
@@ -47,12 +46,7 @@ public class mulquizresult extends AppCompatActivity {
         });
     }
 
-    private void saveScore(int score) {
-        SharedPreferences sharedPreferences = getSharedPreferences(SCORE_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("multiplication_score", score);
-        editor.apply();
-    }
+
 
 
 }

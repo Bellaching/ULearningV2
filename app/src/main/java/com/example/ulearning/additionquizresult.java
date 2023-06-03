@@ -32,8 +32,7 @@ public class additionquizresult extends AppCompatActivity {
         // Retrieve the score from the intent
         score = getIntent().getIntExtra("score", 0);
 
-        // Save the score in SharedPreferences
-        saveScore(score);
+
 
         additionScoreTextView.setText("Score: " + score);
 
@@ -65,12 +64,7 @@ public class additionquizresult extends AppCompatActivity {
         saveScoreToFirebase(score);
     }
 
-    private void saveScore(int score) {
-        SharedPreferences sharedPreferences = getSharedPreferences(SCORE_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("addition_score", score);
-        editor.apply();
-    }
+
 
     private void saveScoreToFirebase(int score) {
         if (!username.isEmpty()) {

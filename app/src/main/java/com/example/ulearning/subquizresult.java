@@ -25,8 +25,7 @@ public class subquizresult extends AppCompatActivity {
         // Retrieve the score from the intent
         score = getIntent().getIntExtra("score", 0);
 
-        // Save the score in SharedPreferences
-        saveScore(score);
+
 
         subscoreTextView.setText("Score: " + score);
 
@@ -46,12 +45,7 @@ public class subquizresult extends AppCompatActivity {
         });
     }
 
-    private void saveScore(int score) {
-        SharedPreferences sharedPreferences = getSharedPreferences(SCORE_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("subtraction_score", score);
-        editor.apply();
-    }
+
 
 
 }
