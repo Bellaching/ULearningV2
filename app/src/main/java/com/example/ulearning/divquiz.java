@@ -67,8 +67,8 @@ public class divquiz extends AppCompatActivity {
     }
 
     private void generateQuestion() {
-        numbers[0] = random.nextInt(100) + 1; // Generate a random number between 1 and 100 (inclusive)
-        numbers[1] = random.nextInt(100) + 1;
+        numbers[0] = random.nextInt(10) + 1; // Generate a random number between 1 and 100 (inclusive)
+        numbers[1] = random.nextInt(10) + 1;
         correctAnswer = numbers[0] / numbers[1];
         questionTextView.setText((int) numbers[0] + " ÷ " + (int) numbers[1]);
         generateOptions();
