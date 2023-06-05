@@ -84,9 +84,9 @@ public class divquiz extends AppCompatActivity {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         option1.setText(decimalFormat.format(correctAnswer));
 
-        for (int i = 2; i <= 4; i++) {
+        for (int i = 1; i <= 4; i++) {
             RadioButton option = getOptionRadioButton(i);
-            float randomOption = random.nextFloat() * 100;
+            float randomOption = random.nextFloat() * 10;
             option.setText(decimalFormat.format(randomOption));
         }
 

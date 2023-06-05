@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.Random;
 
 public class additionquiz extends AppCompatActivity {
@@ -27,6 +29,10 @@ public class additionquiz extends AppCompatActivity {
     private int[] numbers = new int[2];
     private int correctAnswer;
     private int correctOptionIndex;
+
+    private DatabaseReference databaseRef;
+
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

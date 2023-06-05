@@ -6,12 +6,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Scoretracking extends AppCompatActivity implements View.OnClickListener {
@@ -37,14 +42,12 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
     private Button mulAgainButton;
     private Button homeButton;
 
+    private String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scoretracking);
-
-
-
-
 
         additionScoreTextView = findViewById(R.id.additionscore);
         subtractionScoreTextView = findViewById(R.id.subscore);
@@ -62,41 +65,23 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
         mulAgainButton.setOnClickListener(this);
         homeButton.setOnClickListener(this);
 
-        additionScore = getScoreFromSharedPreferences("addition_score");
-        subtractionScore = getScoreFromSharedPreferences("subtraction_score");
-        divisionScore = getScoreFromSharedPreferences("division_score");
-        multiplicationScore = getScoreFromSharedPreferences("multiplication_score");
-
         additionScoreTextView.setText("Addition Quiz: " + additionScore);
         subtractionScoreTextView.setText("Subtraction Quiz: " + subtractionScore);
         divScoreTextView.setText("Division Quiz: " + divisionScore);
         mulscoreTextView.setText("Multiplication Quiz: " + multiplicationScore);
+        username = LogIn.usernametxt;
 
+        retriveScoreToFirebase();
         updateQuizResults();
     }
 
-    private int getScoreFromSharedPreferences(String key) {
-        SharedPreferences sharedPreferences = getSharedPreferences(SCORE_PREFS, MODE_PRIVATE);
-        return sharedPreferences.getInt(key, 0);
-    }
 
-
-
-    private String getCurrentUsername() {
-        Intent intent = getIntent();
-        if (intent != null && intent.hasExtra("username")) {
-            return intent.getStringExtra("username");
-        } else {
-            return "";
-        }
-    }
 
     private void updateQuizResults() {
         // Update Addition Quiz results
-        if (additionScore == 0) {
+        if (additionScore < 7) {
             additionScoreTextView.append("\nI'm sorry, but you failed.");
             addAgainButton.setVisibility(View.VISIBLE);
-
         } else if (additionScore > 7) {
             additionScoreTextView.append("\nCongratulations, you passed!");
             addAgainButton.setVisibility(View.GONE);
@@ -106,7 +91,7 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
         }
 
         // Update Subtraction Quiz results
-        if (subtractionScore == 0) {
+        if (subtractionScore < 7) {
             subtractionScoreTextView.append("\nI'm sorry, but you failed.");
             subAgainButton.setVisibility(View.VISIBLE);
         } else if (subtractionScore > 7) {
@@ -118,7 +103,7 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
         }
 
         // Update Division Quiz results
-        if (divisionScore == 0) {
+        if (divisionScore < 7) {
             divScoreTextView.append("\nI'm sorry, but you failed.");
             divAgainButton.setVisibility(View.VISIBLE);
         } else if (divisionScore > 7) {
@@ -130,7 +115,7 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
         }
 
         // Update Multiplication Quiz results
-        if (multiplicationScore == 0) {
+        if (multiplicationScore < 7) {
             mulscoreTextView.append("\nI'm sorry, but you failed.");
             mulAgainButton.setVisibility(View.VISIBLE);
         } else if (multiplicationScore > 7) {
@@ -140,11 +125,7 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
             mulscoreTextView.append("\nYou have not taken this quiz yet.");
             mulAgainButton.setVisibility(View.GONE);
         }
-
-
     }
-
-
 
     @Override
     public void onClick(View view) {
@@ -170,6 +151,50 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
                 intent = new Intent(Scoretracking.this, Home.class);
                 startActivity(intent);
                 break;
+        }
+    }
+
+    public void retriveScoreToFirebase() {
+
+
+        Toast.makeText(Scoretracking.this, "test", Toast.LENGTH_SHORT).show();
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            username = LogIn.usernametxt;
+            scoresRef = FirebaseDatabase.getInstance().getReference().child("scores").child(username);
+
+            scoresRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        additionScore = dataSnapshot.child("addition_score").getValue(Integer.class);
+                        subtractionScore = dataSnapshot.child("subtraction_score").getValue(Integer.class);
+                        divisionScore = dataSnapshot.child("division_score").getValue(Integer.class);
+                        multiplicationScore = dataSnapshot.child("multiplication_score").getValue(Integer.class);
+                      //  scoresRef.child("scores").child(username).child("score").child("division_score").getValue(score);
+                        // Update the UI on the main thread
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                additionScoreTextView.setText("Addition Quiz: " + additionScore);
+                                subtractionScoreTextView.setText("Subtraction Quiz: " + subtractionScore);
+                                divScoreTextView.setText("Division Quiz: " + divisionScore);
+                                mulscoreTextView.setText("Multiplication Quiz: " + multiplicationScore);
+
+                                updateQuizResults();
+                            }
+                        });
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Handle error
+                }
+            });
         }
     }
 }
