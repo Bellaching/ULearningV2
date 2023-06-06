@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 public class signup extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://ulearning-ddf76-default-rtdb.firebaseio.com/");
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,12 @@ public class signup extends AppCompatActivity {
                                     databaseReference.child("user").child(usernametxt).child("age").setValue(agetxt);
                                     databaseReference.child("user").child(usernametxt).child("email").setValue(emailtxt);
                                     databaseReference.child("user").child(usernametxt).child("password").setValue(hashedPassword);
+
+                                    databaseRef = FirebaseDatabase.getInstance().getReference();
+                                    databaseRef.child("scores").child(usernametxt).child("score").child("addition_score").setValue(0);
+                                    databaseRef.child("scores").child(usernametxt).child("score").child("division_score").setValue(0);
+                                    databaseRef.child("scores").child(usernametxt).child("score").child("multiplication_score").setValue(0);
+                                    databaseRef.child("scores").child(usernametxt).child("score").child("subtraction_score").setValue(0);
 
                                     Toast.makeText(signup.this, "User registered successfully.", Toast.LENGTH_SHORT).show();
 
