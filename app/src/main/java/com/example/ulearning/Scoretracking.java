@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -20,11 +22,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Scoretracking extends AppCompatActivity implements View.OnClickListener {
-    private int additionScore;
-    private int subtractionScore;
-    private int divisionScore;
-    private int multiplicationScore;
-
     private DatabaseReference scoresRef;
 
     private FirebaseAuth firebaseAuth;
@@ -65,19 +62,13 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
         mulAgainButton.setOnClickListener(this);
         homeButton.setOnClickListener(this);
 
-        additionScoreTextView.setText("Addition Quiz: " + additionScore);
-        subtractionScoreTextView.setText("Subtraction Quiz: " + subtractionScore);
-        divScoreTextView.setText("Division Quiz: " + divisionScore);
-        mulscoreTextView.setText("Multiplication Quiz: " + multiplicationScore);
         username = LogIn.usernametxt;
-
         retriveScoreToFirebase();
-        updateQuizResults();
     }
 
 
 
-    private void updateQuizResults() {
+    private void updateQuizResults(int additionScore, int subtractionScore, int divisionScore, int multiplicationScore) {
         // Update Addition Quiz results
         if (additionScore < 7) {
             additionScoreTextView.append("\nI'm sorry, but you failed.");
@@ -155,46 +146,26 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
     }
 
     public void retriveScoreToFirebase() {
-
-
-        Toast.makeText(Scoretracking.this, "test", Toast.LENGTH_SHORT).show();
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        currentUser = firebaseAuth.getCurrentUser();
-
-        if (currentUser != null) {
-            username = LogIn.usernametxt;
-            scoresRef = FirebaseDatabase.getInstance().getReference().child("scores").child(username);
-
-            scoresRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists()) {
-                        additionScore = dataSnapshot.child("addition_score").getValue(Integer.class);
-                        subtractionScore = dataSnapshot.child("subtraction_score").getValue(Integer.class);
-                        divisionScore = dataSnapshot.child("division_score").getValue(Integer.class);
-                        multiplicationScore = dataSnapshot.child("multiplication_score").getValue(Integer.class);
-                      //  scoresRef.child("scores").child(username).child("score").child("division_score").getValue(score);
-                        // Update the UI on the main thread
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                additionScoreTextView.setText("Addition Quiz: " + additionScore);
-                                subtractionScoreTextView.setText("Subtraction Quiz: " + subtractionScore);
-                                divScoreTextView.setText("Division Quiz: " + divisionScore);
-                                mulscoreTextView.setText("Multiplication Quiz: " + multiplicationScore);
-
-                                updateQuizResults();
-                            }
-                        });
-                    }
+        scoresRef = FirebaseDatabase.getInstance().getReference();
+        int[] score = new int[4];
+        scoresRef.child("scores").child("dv").child("score").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Toast.makeText(Scoretracking.this, "testerx", Toast.LENGTH_SHORT).show();
                 }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    // Handle error
+                else {
+                    score[0] = Integer.parseInt(String.valueOf(task.getResult().child("addition_score").getValue()));
+//                    score[1] = Integer.parseInt(String.valueOf(task.getResult().child("subtraction_score").getValue()));
+//                    score[2] = Integer.parseInt(String.valueOf(task.getResult().child("division_score").getValue()));
+//                    score[3] = Integer.parseInt(String.valueOf(task.getResult().child("multiplication_score").getValue()));
+                    additionScoreTextView.setText("Addition Quiz: " + score[0]);
+                    subtractionScoreTextView.setText("Subtraction Quiz: " + score[1]);
+                    divScoreTextView.setText("Division Quiz: " + score[2]);
+                    mulscoreTextView.setText("Multiplication Quiz: " + score[3]);
+                    updateQuizResults(score[0],score[1], score[2], score[3]);
                 }
-            });
-        }
+            }
+        });
     }
 }
