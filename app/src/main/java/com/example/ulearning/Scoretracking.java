@@ -148,7 +148,7 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
     public void retriveScoreToFirebase() {
         scoresRef = FirebaseDatabase.getInstance().getReference();
         int[] score = new int[4];
-        scoresRef.child("scores").child("dv").child("score").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        scoresRef.child("scores").child(username).child("score").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (!task.isSuccessful()) {
@@ -156,9 +156,9 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
                 }
                 else {
                     score[0] = Integer.parseInt(String.valueOf(task.getResult().child("addition_score").getValue()));
-//                    score[1] = Integer.parseInt(String.valueOf(task.getResult().child("subtraction_score").getValue()));
-//                    score[2] = Integer.parseInt(String.valueOf(task.getResult().child("division_score").getValue()));
-//                    score[3] = Integer.parseInt(String.valueOf(task.getResult().child("multiplication_score").getValue()));
+                    score[1] = Integer.parseInt(String.valueOf(task.getResult().child("subtraction_score").getValue()));
+                    score[2] = Integer.parseInt(String.valueOf(task.getResult().child("division_score").getValue()));
+                    score[3] = Integer.parseInt(String.valueOf(task.getResult().child("multiplication_score").getValue()));
                     additionScoreTextView.setText("Addition Quiz: " + score[0]);
                     subtractionScoreTextView.setText("Subtraction Quiz: " + score[1]);
                     divScoreTextView.setText("Division Quiz: " + score[2]);
