@@ -78,10 +78,10 @@ public class signup extends AppCompatActivity {
                                     databaseReference.child("user").child(usernametxt).child("password").setValue(hashedPassword);
 
                                     databaseRef = FirebaseDatabase.getInstance().getReference();
-                                    databaseRef.child("scores").child(usernametxt).child("score").child("addition_score").setValue(0);
-                                    databaseRef.child("scores").child(usernametxt).child("score").child("division_score").setValue(0);
-                                    databaseRef.child("scores").child(usernametxt).child("score").child("multiplication_score").setValue(0);
-                                    databaseRef.child("scores").child(usernametxt).child("score").child("subtraction_score").setValue(0);
+                                    databaseRef.child("scores").child(usernametxt).child("score").child("addition_score").setValue(-0);
+                                    databaseRef.child("scores").child(usernametxt).child("score").child("division_score").setValue(-0);
+                                    databaseRef.child("scores").child(usernametxt).child("score").child("multiplication_score").setValue(-0);
+                                    databaseRef.child("scores").child(usernametxt).child("score").child("subtraction_score").setValue(-0);
 
                                     Toast.makeText(signup.this, "User registered successfully.", Toast.LENGTH_SHORT).show();
 

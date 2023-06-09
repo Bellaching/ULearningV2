@@ -35,7 +35,7 @@ public class multiresult extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.goback){
-            Intent i = new Intent(multiresult.this, Home.class);
+            Intent i = new Intent(multiresult.this, multiplication.class);
             startActivity(i);
         }
 

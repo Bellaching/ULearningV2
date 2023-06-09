@@ -35,7 +35,7 @@ public class divresult extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.goback){
-            Intent i = new Intent(divresult.this, Home.class);
+            Intent i = new Intent(divresult.this, divition.class);
             startActivity(i);
         }
     }

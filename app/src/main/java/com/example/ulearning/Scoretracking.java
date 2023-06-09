@@ -70,10 +70,10 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
 
     private void updateQuizResults(int additionScore, int subtractionScore, int divisionScore, int multiplicationScore) {
         // Update Addition Quiz results
-        if (additionScore < 7) {
+        if (additionScore == 0) {
             additionScoreTextView.append("\nI'm sorry, but you failed.");
             addAgainButton.setVisibility(View.VISIBLE);
-        } else if (additionScore > 7) {
+        } else if (additionScore >= 7) {
             additionScoreTextView.append("\nCongratulations, you passed!");
             addAgainButton.setVisibility(View.GONE);
         } else {
@@ -82,41 +82,42 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
         }
 
         // Update Subtraction Quiz results
-        if (subtractionScore < 7) {
-            subtractionScoreTextView.append("\nI'm sorry, but you failed.");
-            subAgainButton.setVisibility(View.VISIBLE);
-        } else if (subtractionScore > 7) {
+        if (subtractionScore == 0) {
+            subtractionScoreTextView.append("\nYou have not taken this quiz yet.");
+            subAgainButton.setVisibility(View.GONE);
+        } else if (subtractionScore >= 7) {
             subtractionScoreTextView.append("\nCongratulations, you passed!");
             subAgainButton.setVisibility(View.GONE);
         } else {
-            subtractionScoreTextView.append("\nYou have not taken this quiz yet.");
-            subAgainButton.setVisibility(View.GONE);
+            subtractionScoreTextView.append("\nI'm sorry, but you failed.");
+            subAgainButton.setVisibility(View.VISIBLE);
         }
 
         // Update Division Quiz results
-        if (divisionScore < 7) {
-            divScoreTextView.append("\nI'm sorry, but you failed.");
-            divAgainButton.setVisibility(View.VISIBLE);
-        } else if (divisionScore > 7) {
+        if (divisionScore == 0) {
+            divScoreTextView.append("\nYou have not taken this quiz yet.");
+            divAgainButton.setVisibility(View.GONE);
+        } else if (divisionScore >= 7) {
             divScoreTextView.append("\nCongratulations, you passed!");
             divAgainButton.setVisibility(View.GONE);
         } else {
-            divScoreTextView.append("\nYou have not taken this quiz yet.");
-            divAgainButton.setVisibility(View.GONE);
+            divScoreTextView.append("\nI'm sorry, but you failed.");
+            divAgainButton.setVisibility(View.VISIBLE);
         }
 
         // Update Multiplication Quiz results
-        if (multiplicationScore < 7) {
-            mulscoreTextView.append("\nI'm sorry, but you failed.");
-            mulAgainButton.setVisibility(View.VISIBLE);
-        } else if (multiplicationScore > 7) {
+        if (multiplicationScore == 0) {
+            mulscoreTextView.append("\nYou have not taken this quiz yet.");
+            mulAgainButton.setVisibility(View.GONE);
+        } else if (multiplicationScore >= 7) {
             mulscoreTextView.append("\nCongratulations, you passed!");
             mulAgainButton.setVisibility(View.GONE);
         } else {
-            mulscoreTextView.append("\nYou have not taken this quiz yet.");
-            mulAgainButton.setVisibility(View.GONE);
+            mulscoreTextView.append("\nI'm sorry, but you failed.");
+            mulAgainButton.setVisibility(View.VISIBLE);
         }
     }
+
 
     @Override
     public void onClick(View view) {

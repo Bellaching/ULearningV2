@@ -34,7 +34,7 @@ public class subresult extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.goback){
-            Intent i = new Intent(subresult.this, Home.class);
+            Intent i = new Intent(subresult.this, subtraction.class);
             startActivity(i);
         }
     }

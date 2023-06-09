@@ -82,7 +82,7 @@ public class LogIn extends AppCompatActivity {
                                         editor.apply();
                                     }
 
-                                    startActivity(new Intent(LogIn.this, Home.class));
+                                    startActivity(new Intent(LogIn.this, Menu.class));
                                     finish();
                                 } else {
                                     Toast.makeText(LogIn.this, "Wrong password. Try again", Toast.LENGTH_SHORT).show();
@@ -108,5 +108,12 @@ public class LogIn extends AppCompatActivity {
                 startActivity(new Intent(LogIn.this, signup.class));
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity(); // Close the app
+
+
     }
 }

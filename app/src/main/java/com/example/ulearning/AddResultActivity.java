@@ -35,7 +35,7 @@ public class AddResultActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.goback){
-            Intent i = new Intent(AddResultActivity.this, Home.class);
+            Intent i = new Intent(AddResultActivity.this, Addition.class);
             startActivity(i);  
         }
 
