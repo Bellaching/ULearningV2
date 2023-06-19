@@ -98,11 +98,8 @@ public class mulquiz extends AppCompatActivity {
         if (currentQuestion < 10) {
             generateQuestion();
         } else {
-            // Disable the answer edit text after the last question
-            answerEditText.setEnabled(false);
-
-            // Disable the submit button after the last question
-            submitButton.setEnabled(false);
+            finishButton.setVisibility(View.VISIBLE); // Show the finish button
+            submitButton.setVisibility(View.GONE);
         }
     }
 

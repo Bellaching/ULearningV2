@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home"
-    android:background="@drawable/bgd">
+    android:background="@drawable/bgbgbgno">
 
 
     <TextView
@@ -34,7 +34,8 @@
         app:layout_constraintEnd_toStartOf="@id/subbtn"
         app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/welcome"
-        app:srcCompat="@drawable/addbtn" />
+        app:srcCompat="@drawable/addbtn"
+        />
 
     <ImageButton
         android:onClick="onClick"
@@ -105,6 +106,17 @@
         app:srcCompat="@drawable/scoretrack"
         android:contentDescription="add"
         />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="399dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hometry" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

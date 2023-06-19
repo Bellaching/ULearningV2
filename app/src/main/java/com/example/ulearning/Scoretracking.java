@@ -70,7 +70,7 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
 
     private void updateQuizResults(int additionScore, int subtractionScore, int divisionScore, int multiplicationScore) {
         // Update Addition Quiz results
-        if (additionScore == 0) {
+        if (additionScore >= 1 && additionScore <= 6) {
             additionScoreTextView.append("\nI'm sorry, but you failed.");
             addAgainButton.setVisibility(View.VISIBLE);
         } else if (additionScore >= 7) {
@@ -82,41 +82,45 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
         }
 
         // Update Subtraction Quiz results
-        if (subtractionScore == 0) {
-            subtractionScoreTextView.append("\nYou have not taken this quiz yet.");
-            subAgainButton.setVisibility(View.GONE);
+        if (subtractionScore >= 1 && subtractionScore <= 6) {
+            subtractionScoreTextView.append("\nI'm sorry, but you failed.");
+            subAgainButton.setVisibility(View.VISIBLE);
         } else if (subtractionScore >= 7) {
             subtractionScoreTextView.append("\nCongratulations, you passed!");
             subAgainButton.setVisibility(View.GONE);
         } else {
-            subtractionScoreTextView.append("\nI'm sorry, but you failed.");
-            subAgainButton.setVisibility(View.VISIBLE);
+            subtractionScoreTextView.append("\nYou have not taken this quiz yet.");
+            subAgainButton.setVisibility(View.GONE);
         }
 
         // Update Division Quiz results
-        if (divisionScore == 0) {
-            divScoreTextView.append("\nYou have not taken this quiz yet.");
-            divAgainButton.setVisibility(View.GONE);
+        if (divisionScore >= 1 && divisionScore <= 6){
+            divScoreTextView.append("\nI'm sorry, but you failed.");
+            divAgainButton.setVisibility(View.VISIBLE);
         } else if (divisionScore >= 7) {
             divScoreTextView.append("\nCongratulations, you passed!");
             divAgainButton.setVisibility(View.GONE);
         } else {
-            divScoreTextView.append("\nI'm sorry, but you failed.");
-            divAgainButton.setVisibility(View.VISIBLE);
+            divScoreTextView.append("\nYou have not taken this quiz yet.");
+            divAgainButton.setVisibility(View.GONE);
         }
 
         // Update Multiplication Quiz results
-        if (multiplicationScore == 0) {
-            mulscoreTextView.append("\nYou have not taken this quiz yet.");
-            mulAgainButton.setVisibility(View.GONE);
+        if (multiplicationScore >= 1 && multiplicationScore <= 6) {
+            mulscoreTextView.append("\nI'm sorry, but you failed.");
+            mulAgainButton.setVisibility(View.VISIBLE);
         } else if (multiplicationScore >= 7) {
             mulscoreTextView.append("\nCongratulations, you passed!");
             mulAgainButton.setVisibility(View.GONE);
         } else {
-            mulscoreTextView.append("\nI'm sorry, but you failed.");
-            mulAgainButton.setVisibility(View.VISIBLE);
+            mulscoreTextView.append("\nYou have not taken this quiz yet.");
+            mulAgainButton.setVisibility(View.GONE);
         }
     }
+
+
+
+
 
 
     @Override
@@ -158,7 +162,7 @@ public class Scoretracking extends AppCompatActivity implements View.OnClickList
                 else {
                     score[0] = Integer.parseInt(String.valueOf(task.getResult().child("addition_score").getValue()));
                     score[1] = Integer.parseInt(String.valueOf(task.getResult().child("subtraction_score").getValue()));
-                    score[2] = Integer.parseInt(String.valueOf(task.getResult().child("division_score").getValue()));
+                    score[2] = Integer.parseInt(String.valueOf(task.getResult().child("division_score"). getValue()));
                     score[3] = Integer.parseInt(String.valueOf(task.getResult().child("multiplication_score").getValue()));
                     additionScoreTextView.setText("Addition Quiz: " + score[0]);
                     subtractionScoreTextView.setText("Subtraction Quiz: " + score[1]);

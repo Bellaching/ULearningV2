@@ -26,5 +26,7 @@
     <color name="purple_100">#FFEA80FC</color>
     <color name="purple_300">#FF8E24AA</color>
     <color name="purple_400">#FF7B1FA2</color>
+    <color name="light_blue">#87CEFA</color>
+
 
 </resources>

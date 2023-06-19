@@ -69,44 +69,20 @@ public class subquiz extends AppCompatActivity {
 
     // Function to generate a question
     private void generateQuestion() {
-        int randomQuestionType = random.nextInt(2); // Randomly select the question type
-
-        if (randomQuestionType == 0) {
-            // Fill-in-the-blank question
-            isBlankQuestion = true;
-            generateBlankQuestion();
-        } else {
-            // User-entered answer question
-            isBlankQuestion = false;
-            generateAnswerQuestion();
-        }
+        generateAnswerQuestion();
 
         answerEditText.setText(""); // Clear the previous answer
 
-        // Enable the submit button
-        submitButton.setEnabled(true);
-
         // Show the finish button if it's the last question
-        if (currentQuestion == 9) {
+        if (currentQuestion == 10) {
             finishButton.setVisibility(View.VISIBLE);
+            submitButton.setEnabled(false); // Disable the submit button
+            answerEditText.setEnabled(false); // Disable the answer edit text
+        } else {
+            finishButton.setVisibility(View.GONE);
+            submitButton.setEnabled(true); // Enable the submit button
+            answerEditText.setEnabled(true); // Enable the answer edit text
         }
-    }
-
-    // Function to generate a fill-in-the-blank question
-    private void generateBlankQuestion() {
-        numbers[0] = random.nextInt(101);
-        numbers[1] = random.nextInt(101);
-
-        correctAnswer = numbers[0] - numbers[1];
-        questionTextView.setText(numbers[0] + " - __ = " + numbers[1]);
-
-        // Show the question blank
-        questionBlankTextView.setVisibility(View.VISIBLE);
-
-
-        // Show the answer edit text and enable it
-        answerEditText.setVisibility(View.VISIBLE);
-        answerEditText.setEnabled(true);
     }
 
     // Function to generate a user-entered answer question
@@ -138,11 +114,8 @@ public class subquiz extends AppCompatActivity {
         if (currentQuestion < 10) {
             generateQuestion();
         } else {
-            // Disable the answer edit text after the last question
-            answerEditText.setEnabled(false);
-
-            // Disable the submit button after the last question
-            submitButton.setEnabled(false);
+            finishButton.setVisibility(View.VISIBLE); // Show the finish button
+            submitButton.setVisibility(View.GONE);
         }
     }
 

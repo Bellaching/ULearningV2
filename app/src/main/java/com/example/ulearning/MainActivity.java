@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void startBackgroundMusic() {
-        mediaPlayer = MediaPlayer.create(this, R.raw.bgmusic); // Replace "your_music_file" with the actual filename of your music file
+        mediaPlayer = MediaPlayer.create(this, R.raw.bgmusic);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
     }

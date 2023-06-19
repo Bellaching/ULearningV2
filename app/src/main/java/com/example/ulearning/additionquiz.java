@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DatabaseReference;
-
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class additionquiz extends AppCompatActivity {
@@ -29,10 +29,6 @@ public class additionquiz extends AppCompatActivity {
     private int[] numbers = new int[2];
     private int correctAnswer;
     private int correctOptionIndex;
-
-    private DatabaseReference databaseRef;
-
-    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,16 +74,15 @@ public class additionquiz extends AppCompatActivity {
 
     // Function to generate a question
     private void generateQuestion() {
-        numbers[0] = random.nextInt(101);
-        numbers[1] = random.nextInt(101);
+        numbers[0] = random.nextInt(10) + 1; // Generate numbers between 1 and 10 for simplicity
+        numbers[1] = random.nextInt(10) + 1;
 
         correctAnswer = numbers[0] + numbers[1];
-        questionTextView.setText(numbers[0] + " + " + numbers[1]);
+        questionTextView.setText("What is " + numbers[0] + " + " + numbers[1] + "?");
 
         generateOptions();
     }
 
-    // Function to generate answer options
     // Function to generate answer options
     private void generateOptions() {
         RadioButton option1 = findViewById(R.id.option1RadioButton);
@@ -95,34 +90,25 @@ public class additionquiz extends AppCompatActivity {
         RadioButton option3 = findViewById(R.id.option3RadioButton);
         RadioButton option4 = findViewById(R.id.option4RadioButton);
 
-        correctOptionIndex = random.nextInt(4); // Randomly assign the correct answer to an option
+        ArrayList<Integer> options = new ArrayList<>();
+        options.add(correctAnswer);
 
-        switch (correctOptionIndex) {
-            case 0:
-                option1.setText(String.valueOf(correctAnswer));
-                option2.setText(String.valueOf(random.nextInt(101)));
-                option3.setText(String.valueOf(random.nextInt(101)));
-                option4.setText(String.valueOf(random.nextInt(101)));
-                break;
-            case 1:
-                option1.setText(String.valueOf(random.nextInt(101)));
-                option2.setText(String.valueOf(correctAnswer));
-                option3.setText(String.valueOf(random.nextInt(101)));
-                option4.setText(String.valueOf(random.nextInt(101)));
-                break;
-            case 2:
-                option1.setText(String.valueOf(random.nextInt(101)));
-                option2.setText(String.valueOf(random.nextInt(101)));
-                option3.setText(String.valueOf(correctAnswer));
-                option4.setText(String.valueOf(random.nextInt(101)));
-                break;
-            case 3:
-                option1.setText(String.valueOf(random.nextInt(101)));
-                option2.setText(String.valueOf(random.nextInt(101)));
-                option3.setText(String.valueOf(random.nextInt(101)));
-                option4.setText(String.valueOf(correctAnswer));
-                break;
+        while (options.size() < 4) {
+            int randomOption = random.nextInt(20) +1;
+            if (!options.contains(randomOption)) {
+                options.add(randomOption);
+            }
         }
+
+        Collections.shuffle(options);
+
+        option1.setText(String.valueOf(options.get(0)));
+        option2.setText(String.valueOf(options.get(1)));
+        option3.setText(String.valueOf(options.get(2)));
+        option4.setText(String.valueOf(options.get(3)));
+
+        // Set the correctOptionIndex based on the position of the correct answer
+        correctOptionIndex = options.indexOf(correctAnswer);
 
         // Clear the selected answer
         optionsRadioGroup.clearCheck();
@@ -142,6 +128,7 @@ public class additionquiz extends AppCompatActivity {
             generateQuestion();
         } else {
             finishButton.setVisibility(View.VISIBLE); // Show the finish button
+            submitButton.setVisibility(View.GONE);
         }
     }
 

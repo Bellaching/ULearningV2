@@ -10,7 +10,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import java.text.DecimalFormat;
 import java.util.Random;
 
 public class divquiz extends AppCompatActivity {
@@ -21,8 +20,8 @@ public class divquiz extends AppCompatActivity {
     private Button submitButton;
     private Button finishButton;
     private Random random;
-    private float[] numbers = new float[2];
-    private float correctAnswer;
+    private int[] numbers = new int[2];
+    private int correctAnswer;
     private int correctOptionIndex;
 
     @Override
@@ -67,10 +66,10 @@ public class divquiz extends AppCompatActivity {
     }
 
     private void generateQuestion() {
-        numbers[0] = random.nextInt(10) + 1; // Generate a random number between 1 and 100 (inclusive)
-        numbers[1] = random.nextInt(10) + 1;
+        numbers[0] = (random.nextInt(5) + 1) * 2; // Generate a random even number between 2 and 10
+        numbers[1] = (random.nextInt(4) + 1) * 2; // Generate a random even number between 2 and 8
         correctAnswer = numbers[0] / numbers[1];
-        questionTextView.setText((int) numbers[0] + " ÷ " + (int) numbers[1]);
+        questionTextView.setText("What is " + numbers[0] + " ÷ " + numbers[1]);
         generateOptions();
     }
 
@@ -81,17 +80,16 @@ public class divquiz extends AppCompatActivity {
         RadioButton option4 = findViewById(R.id.option4RadioButton);
         correctOptionIndex = random.nextInt(4);
 
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        option1.setText(decimalFormat.format(correctAnswer));
+        option1.setText(String.valueOf(correctAnswer));
 
         for (int i = 1; i <= 4; i++) {
             RadioButton option = getOptionRadioButton(i);
-            float randomOption = random.nextFloat() * 10;
-            option.setText(decimalFormat.format(randomOption));
+            int randomOption = (random.nextInt(4) + 1) * 2; // Generate a random even number between 2 and 8
+            option.setText(String.valueOf(randomOption));
         }
 
         RadioButton correctOption = getOptionRadioButton(correctOptionIndex + 1);
-        correctOption.setText(decimalFormat.format(correctAnswer));
+        correctOption.setText(String.valueOf(correctAnswer));
         optionsRadioGroup.clearCheck();
     }
 
@@ -108,7 +106,8 @@ public class divquiz extends AppCompatActivity {
         if (currentQuestion < 10) {
             generateQuestion();
         } else {
-            finishButton.setVisibility(View.VISIBLE);
+            finishButton.setVisibility(View.VISIBLE); // Show the finish button
+            submitButton.setVisibility(View.GONE);
         }
     }
 
