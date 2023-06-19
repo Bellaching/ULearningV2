@@ -59,7 +59,7 @@ public class signup extends AppCompatActivity {
                     Toast.makeText(signup.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                 } else {
                     try {
-                        if (passwordtxt.length() != 8) {
+                        if (passwordtxt.length() < 8) {
                             throw new IllegalArgumentException("Password must be 8 characters long");
                         }
 
